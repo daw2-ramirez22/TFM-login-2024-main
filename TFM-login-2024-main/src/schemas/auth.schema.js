@@ -14,8 +14,8 @@ export const registerSchema = z.object({
         required_error: 'Password is required'
     })
     //minimo 6 caracteres en la contraseña
-    .min(4,{
-        message: 'Password must be at leas 4 characters'
+    .min(6,{
+        message: 'Password must be at leas 6 characters'
     }),
 });
 
@@ -30,7 +30,7 @@ export const loginSchema = z.object({
         required_error: 'Password is required'
     })
     //minimo 6 caracteres en la contraseña
-    .min(4,{
-        message: 'Password must be at leas 4 characters'
+    .min(6,{
+        message: 'Password must be at leas 6 characters'
     }),
 });

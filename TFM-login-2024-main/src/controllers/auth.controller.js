@@ -10,6 +10,10 @@ export const register = async (req, res) => {
     const {email, password, username} = req.body
     //instancio un objeto para crear usuarios, de esta forma puedo alterar un objeto y guardarlo despuies, ya que es asincrono lo hago con try y catch
     try {
+        //validacion antes de encriptar
+       const userFound = await User.findOne({email})
+       if (userFound) return res.status(400).json(['The email is already in use'])
+
         //ejecutar bcrypt para traer un metodo para encriptar un string
         const passwordHash = await bcrypt.hash(password, 10)
 
