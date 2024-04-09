@@ -6,12 +6,15 @@ import taskRoutes from './routes/task.routes.js'
 import morgan from 'morgan'
 // import para convertir cookies
 import cookieParser from 'cookie-parser'
-
+//importar cors
+import cors from "cors"
 
 
 
 //ejecuto express
 const app = express()
+//soluciono problema de cors
+app.use(cors())
 //ejecuto morgan para que cada vez que guarde se refresque y no tener que hacer todo el rato node src/index.js
 app.use(morgan('dev'))
 //para trabajar con jsons
