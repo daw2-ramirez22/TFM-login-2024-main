@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-Body{
-  background: #202020;
-  color: white;
-}
