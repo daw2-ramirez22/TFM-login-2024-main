@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
+//creo una funcion para la barra de navegacion que aparece en la parte superior
 function Navbar() {
-
+    
     const {isAuthenticated, logout, user} = useAuth()
 
     return(
         <div >
-            <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg ">
+            <nav className="bg-zinc-700 my-3 flex justify-between items-center py-5 px-10 rounded-lg ">
                 <Link to={
                     isAuthenticated ? "/Tasks" : "/"
                 }>

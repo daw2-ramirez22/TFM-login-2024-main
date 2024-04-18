@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import { TOKEN_SECRET } from '../config.js'
 
 export function createAccessToken(payload){
-    //creo una promesa
+    //creo una promesa para el token
     return new Promise ((resolve, reject)=>{
         jwt.sign(
             payload, 

@@ -18,13 +18,14 @@ function LoginPage() {
     const onSubmit = handleSubmit((data) => {
         signin(data)
     })
+    // effect para que si estoy autenticado para que si me logeo me envie a mis tareas 
     useEffect(() => {
         if (isAuthenticated) {
           navigate("/tasks");
         }
     }, [isAuthenticated]);
 
-
+    //devuelvo el formulario con toda la info para poder logear el usuario
     return(
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">
             <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
@@ -44,7 +45,6 @@ function LoginPage() {
                     {
                     errors.email && <p className="text-red-500">Email is required</p> 
                     }
-
                     <input type="password"  {...register("password", {required: true})} className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder="password"/>
                     {
                     errors.password && <p className="text-red-500">Password is required</p> 
