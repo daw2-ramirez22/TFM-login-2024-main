@@ -1,5 +1,6 @@
 import React from "react"
 import imagencole from "../assets/img/imagencole.png";
+//pagina de "inicio" 
 function HomePage() {
     return(
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">

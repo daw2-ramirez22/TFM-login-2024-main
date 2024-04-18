@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTasks } from "../context/TasksContext";
 import TaskCard from "../components/TaskCard";
+import  imagencole  from "../assets/img/imagencole.png";
 
 function TasksPage() {
 
@@ -9,7 +10,14 @@ function TasksPage() {
     useEffect(() => {
       getTasks();
     }, [ ]);
-    if (tasks.length==0)  return (<h1>No hay tareas</h1>)
+    if (tasks.length==0)  return (
+        <div className="flex h-[calc(100vh-100px)] items-center justify-center">
+            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+                    <h1 className="font-extrabold">No tienes tareas</h1>
+                    <img src={imagencole} alt="" />
+            </div>
+        </div>
+    )
     
     
     return(

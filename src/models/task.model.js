@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+//creo schema para las tareas con titulo, descripcion
 const taskSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -22,5 +22,5 @@ const taskSchema = new mongoose.Schema({
 {
     timestamps: true
 })
-
+//exporto el schema de la tarea
 export default mongoose.model("Task", taskSchema)

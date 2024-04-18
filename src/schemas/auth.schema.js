@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-//para validar el registro
+//schema para validar el registro
 export const registerSchema = z.object({
     username: z.string({
         required_error: 'Username is required'
@@ -19,7 +19,7 @@ export const registerSchema = z.object({
     }),
 });
 
-//para validar el login
+//schema para validar el login
 export const loginSchema = z.object({
     email: z.string({
         required_error: 'Email is required'

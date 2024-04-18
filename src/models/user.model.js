@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-
+//creo el schema del usuario con username, email, contraseña
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -22,5 +22,5 @@ const userSchema = new mongoose.Schema({
 {
     timestamps: true
 })
-
+//exporto el schema del usuario
 export default mongoose.model('User', userSchema)

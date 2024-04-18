@@ -7,7 +7,7 @@ import app from './app.js'
 import {connectDB} from './db.js'
 connectDB()
 
-
+//puerto que se levanta el srt
 app.listen(4000)
-
+//lo muestro por terminal para confirmar
 console.log('Server on port', 4000)
