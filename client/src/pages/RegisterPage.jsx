@@ -1,32 +1,39 @@
+//importo propiedades de react, modulos y mi funcion para autenticacion
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-
+//funcion para registro
 function RegisterPage() {
+    //desde la funcion useAuth traigo funciones  
     const {signup, isAuthenticated, errors: registerErrors} = useAuth()
-
+    
+    //paso las cosas que necesitare para el funcionamiento del registro
     const {
+        //paso un register que sirver para registrar inputs
         register, 
-        handleSubmit, 
+        //utilizo el evento de useForm para decir que quiero que se guarde cuando se ejecuta
+        handleSubmit,
         formState:{errors},
-        } = useForm()
+    //utilizo useForm del modulo react-hook-form para crear formulario
+    } = useForm()
 
     const navigate = useNavigate()
 
 
-
+    //utilizo guardo en esta variale lo que se tiene que ejecutar cuando guarde "la variable esta en el onSubmit del formulario"
     const onSubmit = handleSubmit( async (values) =>{
+        //le paso los valores a la funcion singup para que se logee
         signup(values)
-
      })
-     
+     //si se logea correctamente dirije directamente a las tareas para no tener que pasar otra vez por el login
      useEffect(() => {
         if (isAuthenticated) navigate("/tasks")
     }, [isAuthenticated])
 
+    //el formulario para el registro 
     return(
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">
             <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
@@ -64,4 +71,5 @@ function RegisterPage() {
         </div>
     )
 }
+//exporto mi funcion para el registro 
 export default RegisterPage

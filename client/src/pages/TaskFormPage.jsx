@@ -1,18 +1,16 @@
+//imports
 import { useForm } from "react-hook-form";
 import { useTasks } from "../context/TasksContext";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext"
-
-
-
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc)
 
-
+//funcion para el formulario de tareas
 function TaskFormPage() {
-  
+  //paso variables para si esta registrado conseguir las teareas, crearlas y updatearlas
   const {register, handleSubmit, setValue} = useForm()
   const {createTask, getTask, updateTask} = useTasks()
   const navigate = useNavigate()
@@ -21,22 +19,25 @@ function TaskFormPage() {
 
   
   useEffect(() => {
-
-  async function loadTask() {
-    if(params.id){
-      const task = await getTask(params.id)
-      setValue('title', task.title)
-      setValue('description', task.description)
-      setValue(
-        "date",
-        task.date ? dayjs(task.date).utc().format("YYYY-MM-DD") : ""
-      );
+    
+    async function loadTask() {
+      if(params.id){
+        //muestro la tarea filtrando por id en caso que le haya dado al editar
+        const task = await getTask(params.id)
+          //decimos que valores y donde los queremos guardar
+          setValue('title', task.title)
+          setValue('description', task.description)
+          setValue(
+            "date",
+            task.date ? dayjs(task.date).utc().format("YYYY-MM-DD") : ""
+        );
+      }
     }
-  }
-  loadTask()
+    //ejecuto funcion
+    loadTask()
   }, []); 
   
-  
+  //para mostrar la fecha
   const onSubmit = handleSubmit((data) =>{
 
     try {

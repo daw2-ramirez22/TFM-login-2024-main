@@ -1,21 +1,28 @@
+//importo propiedades de react, modulos y mi funcion para autenticacion
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-
+//guncion para la pagina de login 
 function LoginPage() {
-
+    //paso las cosas que necesitare para el funcionamiento del login
     const {
+        //paso un register que sirver para registrar inputs
         register, 
+        //utilizo el evento de useForm para decir que quiero que se guarde cuando se ejecuta
         handleSubmit,
         formState: {errors},
+    //utilizo useForm del modulo react-hook-form para crear formulario
     } = useForm()
 
+    //desde la funcion useAuth traigo funciones  
     const {signin, errors: signinErrors, isAuthenticated} = useAuth()
+    
     const navigate = useNavigate()
-
+    //utilizo guardo en esta variale lo que se tiene que ejecutar cuando guarde "la variable esta en el onSubmit del formulario"
     const onSubmit = handleSubmit((data) => {
+        //le paso los valores a la funcion singup para que se logee
         signin(data)
     })
     // effect para que si estoy autenticado para que si me logeo me envie a mis tareas 

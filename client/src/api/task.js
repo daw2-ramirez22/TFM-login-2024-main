@@ -1,6 +1,7 @@
+//importo axios desde mi ruta de axios
 import axios from "./axios";
 
-//utilizo axios para hacer mis promesas para las tareas
+//utilizo axios para hacer mis "promesas" para las tareas
 export const getTasksRequest = async () => axios.get("/tasks");
 
 export const getTaskRequest = async (id) => axios.get(`/tasks/${id}`);

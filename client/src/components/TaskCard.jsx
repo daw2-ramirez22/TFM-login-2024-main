@@ -1,8 +1,10 @@
+//imports
 import { useTasks } from "../context/TasksContext"
 import { Link } from "react-router-dom";
 
+//funcion para crear la card que utilida el update y el create tasks
 function TaskCard({ task }) {
-    
+    //para poder borrar tareas
     const {deleteTask} = useTasks()
     
     return(
@@ -27,5 +29,5 @@ function TaskCard({ task }) {
           
     )
 }
-
+//exporto la funcion
 export default TaskCard

@@ -1,4 +1,5 @@
 import React from "react"
+//importo mi imagen del cole
 import imagencole from "../assets/img/imagencole.png";
 //pagina de "inicio" 
 function HomePage() {
@@ -11,5 +12,5 @@ function HomePage() {
         </div>
     )
 }
-
+//exporto la funcion
 export default HomePage

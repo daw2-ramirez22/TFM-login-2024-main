@@ -1,11 +1,13 @@
+//imports de authcontext y link
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
-//creo una funcion para la barra de navegacion que aparece en la parte superior
+//creo una funcion para la "barra de navegacion" que aparece en la parte superior
 function Navbar() {
-    
+    //utilico el metodo auth y le paso como parametros el usuario, la funcion de deslogear y si esta autenticado
     const {isAuthenticated, logout, user} = useAuth()
-
+    
+    //devuelvo la "barra de navegacion"
     return(
         <div >
             <nav className="bg-zinc-700 my-3 flex justify-between items-center py-5 px-10 rounded-lg ">
@@ -54,5 +56,5 @@ function Navbar() {
         
     )
 }
-
+//exporto la funcion
 export default Navbar
