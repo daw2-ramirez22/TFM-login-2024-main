@@ -26,8 +26,8 @@ app.use(express.json())
 app.use(cookieParser())
 
 //ejecuto el import de autenticacion de rutas que he importado en la linea 3, coloco api para que todas las rutas de autenticaicon de usuarios tenga que comenzar con http://localhost:4000/api/XXX
-app.use("/api", authRoutes)
-app.use("/api", taskRoutes)
+app.use("https://tfm-login-2024-main.onrender.com", authRoutes)
+app.use("https://tfm-login-2024-main.onrender.com", taskRoutes)
 
 
  //exporto app con express para arrancar el desde index
