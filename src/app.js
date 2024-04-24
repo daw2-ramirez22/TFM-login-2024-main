@@ -29,6 +29,8 @@ app.use(cookieParser())
 app.use("/api", authRoutes)
 app.use("/api", taskRoutes)
 
-
+app.get("/", (req,res) =>{
+    res.send("hola mundo")
+})
  //exporto app con express para arrancar el desde index
 export default app
