@@ -21,6 +21,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     //utilizo uState y paso el user que podre leer en toda la app
     const [user, setUser] = useState(null)
+    
     //uso el estado isautenticated iniciado como false y set autenticated para introdcir si me he autenticado
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     //useState para control de errores

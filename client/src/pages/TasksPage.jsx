@@ -11,7 +11,7 @@ function TasksPage() {
     useEffect(() => {
       getTasks();
     }, [ ]);
-
+    
     //si esta vacio porque no tengo tareas mandara esto
     if (tasks.length==0)  return (
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">

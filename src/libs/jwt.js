@@ -1,5 +1,10 @@
 import jwt from 'jsonwebtoken'
-import { TOKEN_SECRET } from '../config.js'
+import dotenv from 'dotenv';
+dotenv.config({path: './.env'})
+
+
+//variable de entornodel token
+const TOKEN_SECRET = process.env.TOKEN || "aslkfd"
 
 export function createAccessToken(payload){
     //creo una promesa para el token

@@ -5,8 +5,11 @@ import bcrypt from 'bcryptjs'
 //importo la creacion de tokens
 import {createAccessToken} from '../libs/jwt.js'
 import jwt from "jsonwebtoken";
-import {TOKEN_SECRET} from "../config.js";
+import dotenv from 'dotenv';
+dotenv.config({path: './.env'})
 
+//variable de entornodel token
+const TOKEN_SECRET = process.env.TOKEN || "aslkfd"
 //metodo para registrar usuarios
 export const register = async (req, res) => {
     const {email, password, username} = req.body
@@ -19,11 +22,12 @@ export const register = async (req, res) => {
         //ejecutar bcrypt para traer un metodo para encriptar un string
         const passwordHash = await bcrypt.hash(password, 10)
 
-        //Probamos de crear un usuario 
+        //Probamos de crear un usuario con roles
         const newUser = new User({
             username,
             email,
             password: passwordHash,
+            role: "user"
         })
         const userSaved = await newUser.save()   
         const token = await createAccessToken({id: userSaved.id})
@@ -35,6 +39,7 @@ export const register = async (req, res) => {
             email: userSaved.email,
             createdAt: userSaved.createdAt,
             updateAt: userSaved.updatedAt,
+            role: userSaved.role,
         })
     } catch (error) {
         //Si hay error que me lo muestre por consola
@@ -98,16 +103,17 @@ export const verifyToken = async (req, res) => {
     const { token } = req.cookies;
     if (!token) return res.send(false);
   
-    jwt.verify(token, TOKEN_SECRET, async (error, user) => {
+    jwt.verify(token,TOKEN_SECRET, async (error, user) => {
       if (error) return res.sendStatus(401);
   
       const userFound = await User.findById(user.id);
       if (!userFound) return res.sendStatus(401);
-  
+    
       return res.json({
         id: userFound._id,
         username: userFound.username,
         email: userFound.email,
+        role: userFound.role,
       });
     });
 }

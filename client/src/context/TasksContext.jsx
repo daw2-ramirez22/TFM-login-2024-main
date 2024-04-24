@@ -20,10 +20,12 @@ export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([]);
   //creo funcon para pedir tareas
   const getTasks = async () => {
+      
       //pericion al baxk
       const res = await getTasksRequest();
       //paso como parametros a set tasks los datos
       setTasks(res.data);
+      
     };
       
   //creo funcion para crear tareas   
