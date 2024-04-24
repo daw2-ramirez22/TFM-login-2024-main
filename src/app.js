@@ -15,7 +15,6 @@ import cors from "cors"
 const app = express()
 //soluciono problema de cors
 app.use(cors({
-    origin: "https://tfm-login-2024-main-9myv.vercel.app",
     credentials: true
 }))
 //ejecuto morgan para que cada vez que guarde se refresque y no tener que hacer todo el rato node src/index.js
@@ -29,8 +28,6 @@ app.use(cookieParser())
 app.use("/api", authRoutes)
 app.use("/api", taskRoutes)
 
-app.get("/", (req,res) =>{
-    res.send("hola mundo")
-})
+
  //exporto app con express para arrancar el desde index
 export default app
