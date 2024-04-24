@@ -15,7 +15,7 @@ import cors from "cors"
 const app = express()
 //soluciono problema de cors
 app.use(cors({
-    origin: "http://localhost:5175",
+    origin: "http://localhost:5173",
     credentials: true
 }))
 //ejecuto morgan para que cada vez que guarde se refresque y no tener que hacer todo el rato node src/index.js
