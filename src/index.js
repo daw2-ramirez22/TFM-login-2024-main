@@ -11,3 +11,7 @@ connectDB()
 app.listen(4000)
 //lo muestro por terminal para confirmar
 console.log('Server on port', 4000)
+
+app.get("/", (req,res) =>{
+    res.send("hola mundo")
+})
